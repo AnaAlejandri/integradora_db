@@ -10,6 +10,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/audio', express.static(path.join(__dirname, 'audio')));
+app.use('/archivos', express.static(path.join(__dirname, 'archivos')));
 
 const pool = process.env.DATABASE_URL
   ? new Pool({
