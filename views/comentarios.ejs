@@ -15,11 +15,11 @@
     <% } %>
 
     <form action="/comentarios" method="POST">
-      <label for="autor">Nombre:</label>
-      <input id="autor" name="autor" type="text" required />
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" name="nombre" type="text" required />
 
-      <label for="mensaje">Comentario:</label>
-      <textarea id="mensaje" name="mensaje" required></textarea>
+      <label for="comentario">Comentario:</label>
+      <textarea id="comentario" name="comentario" required></textarea>
 
       <button type="submit">Publicar</button>
     </form>
@@ -33,8 +33,8 @@
         <ul>
           <% lista.forEach((item) => { %>
             <li>
-              <strong><%= item.autor || item.nombre || 'Anónimo' %>:</strong>
-              <span><%= item.mensaje || item.comentario || item.opinion || '' %></span>
+              <strong><%= item.nombre %>:</strong>
+              <span><%= item.comentario %></span>
             </li>
           <% }); %>
         </ul>
