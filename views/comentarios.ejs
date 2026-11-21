@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comentarios</title>
+</head>
+<body>
+  <main>
+    <h1>Comentarios / Opiniones</h1>
+    <a href="/">Volver al inicio</a>
+
+    <% if (typeof avisoDB !== 'undefined' && avisoDB) { %>
+      <p><%= avisoDB %></p>
+    <% } %>
+
+    <form action="/comentarios" method="POST">
+      <label for="autor">Nombre:</label>
+      <input id="autor" name="autor" type="text" required />
+
+      <label for="mensaje">Comentario:</label>
+      <textarea id="mensaje" name="mensaje" required></textarea>
+
+      <button type="submit">Publicar</button>
+    </form>
+
+    <section>
+      <h2>Opiniones guardadas</h2>
+      <% const lista = typeof opiniones !== 'undefined' ? opiniones : []; %>
+      <% if (lista.length === 0) { %>
+        <p>Todavía no hay comentarios.</p>
+      <% } else { %>
+        <ul>
+          <% lista.forEach((item) => { %>
+            <li>
+              <strong><%= item.autor || item.nombre || 'Anónimo' %>:</strong>
+              <span><%= item.mensaje || item.comentario || item.opinion || '' %></span>
+            </li>
+          <% }); %>
+        </ul>
+      <% } %>
+    </section>
+  </main>
+</body>
+</html>
